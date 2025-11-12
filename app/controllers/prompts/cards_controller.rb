@@ -20,7 +20,7 @@ class Prompts::CardsController < ApplicationController
 
     def search_cards
       published_cards
-        .mentioning(params[:filter])
+        .mentioning(params[:filter], user: Current.user)
         .reverse_chronologically
         .limit(MAX_RESULTS)
     end
