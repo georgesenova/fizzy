@@ -1,7 +1,11 @@
 @layer base {
   body {
     display: grid;
-    grid-template-rows: auto 1fr auto 9em;
+    grid-template-rows: auto 1fr var(--footer-height);
+
+    @media (min-width: 640px) {
+      grid-template-rows: auto 1fr auto 9em;
+    }
 
     &.public {
       grid-template-rows: auto 1fr auto;

@@ -53,7 +53,11 @@
 
   .card-columns__left {
     justify-content: end;
-    padding-inline-start: var(--column-gap);
+    padding-inline-start: calc(var(--column-gap) * 2);
+
+    @media (min-width: 640px) {
+      padding-inline-start: var(--column-gap);
+    }
   }
 
   .card-columns__right {
