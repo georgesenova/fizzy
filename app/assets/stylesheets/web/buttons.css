@@ -89,7 +89,7 @@
   .btn[aria-label]:where(:has(.icon)),
   .btn:where(:has(.for-screen-reader):has(.icon)) {
     --btn-padding: 0;
-    --icon-size: 75%;
+    --icon-size: 70%;
 
     aspect-ratio: 1;
     block-size: var(--btn-size);
@@ -101,13 +101,29 @@
     > * {
       grid-area: 1/1;
     }
+
+    @media (max-width: 640px) {
+      --btn-size: 3em;
+    }
   }
 
   /* Make a normal button circular on mobile */
   @media (max-width: 640px) {
     .btn--circle-mobile {
+      --btn-size: 3em;
+      --btn-padding: 0;
+      --icon-size: 70%;
+
       aspect-ratio: 1;
-      padding: 0.5em;
+      block-size: var(--btn-size);
+      display: grid;
+      inline-size: var(--btn-size);
+      justify-content: normal; /* FF fix */
+      place-items: center;
+
+      > * {
+        grid-area: 1/1;
+      }
 
       kbd,
       span:last-of-type {
@@ -264,4 +280,3 @@
     }
   }
 }
-
