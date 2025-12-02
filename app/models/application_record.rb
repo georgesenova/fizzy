@@ -1,7 +1,5 @@
-class ApplicationRecord < ActiveRecord::Base
-  primary_abstract_class
-
-  configure_replica_connections
+class ApplicationRecord < BaseRecord
+  self.abstract_class = true
 
   attribute :id, :uuid, default: -> { ActiveRecord::Type::Uuid.generate }
 end
