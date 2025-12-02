@@ -13,6 +13,10 @@ class Identity < ApplicationRecord
 
   normalizes :email_address, with: ->(value) { value.strip.downcase.presence }
 
+  def self.find_by_access_token(token)
+    AccessToken.find_by(token: token)&.identity
+  end
+
   def send_magic_link(**attributes)
     attributes[:purpose] = attributes.delete(:for) if attributes.key?(:for)
 
