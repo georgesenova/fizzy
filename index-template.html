@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fizzy CSS Playbook - Complete Component Library</title>
+
+  <!-- Fizzy CSS Files - External References -->
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/_global.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/reset.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/base.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/layout.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/utilities.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/animation.css">
+
+  <!-- Components -->
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/buttons.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/inputs.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/avatars.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/cards.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/card-columns.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/card-perma.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/panels.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/popup.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/dialog.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/flash.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/icons.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/tooltips.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/spinners.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/separators.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/dividers.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/steps.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/tags.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/toggles.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/knobs.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/theme-switcher.css">
+
+  <!-- Content & Layout -->
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/rich-text-content.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/markdown.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/syntax.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/bar.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/header.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/nav.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/trays.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/profile-layout.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/settings.css">
+
+  <!-- Interactive Components -->
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/comments.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/reactions.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/notifications.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/filters.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/search.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/pagination.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/lightbox.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/color-picker.css">
+
+  <!-- Special Effects -->
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/bubble.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/circled-text.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/golden-effect.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/drag_and_drop.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/blank-slates.css">
+
+  <!-- Domain-specific -->
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/events.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/user.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/access-tokens.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/qr-codes.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/autoresize.css">
+
+  <!-- PWA & Print -->
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/pwa.css">
+  <link rel="stylesheet" href="fizzy/app/assets/stylesheets/print.css">
+
+  <style>
+    /* ============================================================
+       PLAYBOOK-SPECIFIC STYLES (不要放在 fizzy CSS 中)
+       ============================================================ */
+    .playbook-container {
+      max-inline-size: 1400px;
+      margin-inline: auto;
+      padding: var(--block-space-double) var(--main-padding);
+    }
+
+    .playbook-section {
+      border-block-end: 1px dashed var(--color-ink-lighter);
+      margin-block-end: var(--block-space-double);
+      padding-block-end: var(--block-space-double);
+    }
+    .playbook-section:last-child { border-block-end: none; }
+
+    .playbook-title {
+      color: var(--color-ink);
+      font-size: var(--text-xx-large);
+      font-weight: 900;
+      margin-block-end: var(--block-space);
+    }
+
+    .playbook-subtitle {
+      color: var(--color-ink-dark);
+      font-size: var(--text-large);
+      font-weight: 700;
+      margin-block: var(--block-space) var(--block-space-half);
+    }
+
+    .playbook-description {
+      color: var(--color-ink-dark);
+      font-size: var(--text-small);
+      margin-block-end: var(--block-space);
+    }
+
+    .playbook-grid {
+      display: grid;
+      gap: var(--block-space);
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .playbook-row {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--inline-space);
+      margin-block-end: var(--block-space);
+    }
+
+    .playbook-box {
+      background: var(--color-ink-lightest);
+      border-radius: 0.5em;
+      padding: var(--block-space);
+    }
+
+    .playbook-color-swatch {
+      aspect-ratio: 1;
+      border-radius: 0.5em;
+      border: 1px solid var(--color-ink-lighter);
+      display: inline-block;
+      inline-size: 3em;
+    }
+
+    .playbook-nav {
+      background: var(--color-canvas);
+      border-block-end: 1px solid var(--color-ink-lighter);
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--inline-space-half);
+      justify-content: center;
+      padding: var(--block-space);
+      position: sticky;
+      inset-block-start: 0;
+      z-index: var(--z-nav);
+    }
+
+    .playbook-nav-link {
+      --btn-padding: 0.3em 0.8em;
+      font-size: var(--text-small);
+    }
+
+    /* Demo containers */
+    .demo-header {
+      background: var(--color-ink);
+      border-radius: 0.5em;
+      color: var(--color-ink-inverted);
+      padding: var(--block-space);
+    }
+
+    .demo-sidebar {
+      background: var(--color-ink-lightest);
+      border-radius: 0.5em;
+      min-block-size: 200px;
+      padding: var(--block-space);
+    }
+
+    .demo-footer {
+      background: var(--color-ink-lightest);
+      border-radius: 0.5em;
+      padding: var(--block-space);
+    }
+
+    /* Animation demos */
+    .animation-demo {
+      cursor: pointer;
+      display: inline-block;
+      padding: var(--block-space);
+      transition: transform 150ms ease;
+    }
+    .animation-demo:hover .shake-target { animation: shake 400ms both; }
+    .animation-demo:hover .wobble-target { animation: wobble 1200ms both; }
+    .animation-demo:hover .pulse-target { animation: pulse 1s infinite; }
+    .animation-demo:hover .zoom-fade-target { animation: zoom-fade 1s both; }
+
+    .animation-demo:active {
+      transform: scale(0.95);
+    }
+
+    /* Click animation demos */
+    .click-animation {
+      transition: all 150ms ease;
+    }
+    .click-animation:active {
+      transform: scale(0.9);
+    }
+    .click-animation.shake-on-click:active {
+      animation: shake 300ms both;
+    }
+
+    /* Flash demo - static position */
+    .flash--demo {
+      position: relative;
+      inset: auto;
+      transform: none;
+    }
+    .flash--demo .flash__inner {
+      animation: none;
+    }
+
+    /* Inline SVG icons for demo */
+    .icon-svg {
+      block-size: 1.25em;
+      display: inline-block;
+      fill: currentColor;
+      inline-size: 1.25em;
+      vertical-align: middle;
+    }
+    .icon-svg--large {
+      block-size: 2em;
+      inline-size: 2em;
+    }
+    .icon-svg--stroke {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+    }
+
+    /* Golden effect demo card */
+    .card--golden-demo {
+      --color-golden: oklch(85% 0.15 85);
+    }
+  </style>
+</head>
+<body>
+  <!-- Skip Navigation -->
+  <a href="#main-content" class="btn btn--link for-screen-reader">
+    Skip to main content
+  </a>
+
+  <!-- Navigation Bar -->
+  <nav class="playbook-nav" id="nav" aria-label="Playbook sections">
+    <a href="#colors" class="btn playbook-nav-link">Colors</a>
+    <a href="#typography" class="btn playbook-nav-link">Typography</a>
+    <a href="#buttons" class="btn playbook-nav-link">Buttons</a>
+    <a href="#forms" class="btn playbook-nav-link">Forms</a>
+    <a href="#cards" class="btn playbook-nav-link">Cards</a>
+    <a href="#layout" class="btn playbook-nav-link">Layout</a>
+    <a href="#components" class="btn playbook-nav-link">Components</a>
+    <a href="#effects" class="btn playbook-nav-link">Effects</a>
+    <a href="#animations" class="btn playbook-nav-link">Animations</a>
+    <a href="#interactions" class="btn playbook-nav-link">Interactions</a>
+    <a href="#utilities" class="btn playbook-nav-link">Utilities</a>
+    <button class="btn btn--circle" id="theme-toggle" aria-label="Toggle theme">
+      <svg class="icon-svg icon-svg--stroke" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="5"/>
+        <line x1="12" y1="1" x2="12" y2="3"/>
+        <line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/>
+        <line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Main Content -->
+  <main id="main-content" class="playbook-container">
+
+    <!-- Hero Section -->
+    <header class="txt-align-center margin-block-double">
+      <h1 class="txt-xx-large font-weight-black margin-block-end">Fizzy CSS Playbook</h1>
+      <p class="txt-large txt-subtle">Complete Component Library with External CSS References</p>
+      <p class="txt-small txt-subtle margin-block-start-half">All styles reference <code>fizzy/app/assets/stylesheets/</code></p>
+    </header>
+
+
+    <!-- ============================================================ -->
+    <!-- COLORS SECTION -->
+    <!-- ============================================================ -->
+    <section class="playbook-section" id="colors">
+      <h2 class="playbook-title">Color System</h2>
+      <p class="playbook-description">OKLCH color space with automatic dark mode support. Colors defined in <code>_global.css</code></p>
+
+      <h3 class="playbook-subtitle">Ink Colors (Grayscale)</h3>
+      <div class="playbook-row">
+        <div class="txt-align-center">
+          <div class="playbook-color-swatch" style="background: var(--color-ink);"></div>
+          <div class="txt-x-small">ink</div>
+        </div>
+        <div class="txt-align-center">
+          <div class="playbook-color-swatch" style="background: var(--color-ink-darker);"></div>
+          <div class="txt-x-small">darker</div>
+        </div>
+        <div class="txt-align-center">
+          <div class="playbook-color-swatch" style="background: var(--color-ink-dark);"></div>
+          <div class="txt-x-small">dark</div>
+        </div>
+        <div class="txt-align-center">
+          <div class="playbook-color-swatch" style="background: var(--color-ink-medium);"></div>
+          <div class="txt-x-small">medium</div>
+        </div>
+        <div class="txt-align-center">
+          <div class="playbook-color-swatch" style="background: var(--color-ink-light);"></div>
+          <div class="txt-x-small">light</div>
+        </div>
+        <div class="txt-align-center">
+          <div class="playbook-color-swatch" style="background: var(--color-ink-lighter);"></div>
+          <div class="txt-x-small">lighter</div>
+        </div>
+        <div class="txt-align-center">
+          <div class="playbook-color-swatch" style="background: var(--color-ink-lightest);"></div>
+          <div class="txt-x-small">lightest</div>
+        </div>
+      </div>
+
+      <h3 class="playbook-subtitle">Semantic Colors</h3>
+      <div class="playbook-row">
+        <div class="txt-align-center">
+          <div class="playbook-color-swatch" style="background: var(--color-link);"></div>
+          <div class="txt-x-small">link</div>
+        </div>
+        <div class="txt-align-center">
+          <div class="playbook-color-swatch" style="background: var(--color-negative);"></div>
+          <div class="txt-x-small">negative</div>
+        </div>
+        <div class="txt-align-center">
+          <div class="playbook-color-swatch" style="background: var(--color-positive);"></div>
+          <div class="txt-x-small">positive</div>
+        </div>
+        <div class="txt-align-center">
+          <div class="playbook-color-swatch" style="background: var(--color-selected);"></div>
+          <div class="txt-x-small">selected</div>
+        </div>
+        <div class="txt-align-center">
+          <div class="playbook-color-swatch" style="background: var(--color-highlight);"></div>
+          <div class="txt-x-small">highlight</div>
+        </div>
+        <div class="txt-align-center">
+          <div class="playbook-color-swatch" style="background: var(--color-marker);"></div>
+          <div class="txt-x-small">marker</div>
+        </div>
+      </div>
+
+      <h3 class="playbook-subtitle">Card Colors</h3>
+      <div class="playbook-row">
+        <div class="txt-align-center">
+          <div class="playbook-color-swatch" style="background: var(--color-card-default);"></div>
+          <div class="txt-x-small">default</div>
+        </div>
+        <div class="txt-align-center">
+          <div class="playbook-color-swatch" style="background: var(--color-card-1);"></div>
+          <div class="txt-x-small">1</div>
+        </div>
+        <div class="txt-align-center">
+          <div class="playbook-color-swatch" style="background: var(--color-card-2);"></div>
+          <div class="txt-x-small">2</div>
+        </div>
+        <div class="txt-align-center">
+          <div class="playbook-color-swatch" style="background: var(--color-card-3);"></div>
+          <div class="txt-x-small">3</div>
+        </div>
+        <div class="txt-align-center">
+          <div class="playbook-color-swatch" style="background: var(--color-card-4);"></div>
+          <div class="txt-x-small">4</div>
+        </div>
+        <div class="txt-align-center">
+          <div class="playbook-color-swatch" style="background: var(--color-card-5);"></div>
+          <div class="txt-x-small">5</div>
+        </div>
+        <div class="txt-align-center">
+          <div class="playbook-color-swatch" style="background: var(--color-card-6);"></div>
+          <div class="txt-x-small">6</div>
+        </div>
+        <div class="txt-align-center">
+          <div class="playbook-color-swatch" style="background: var(--color-card-7);"></div>
+          <div class="txt-x-small">7</div>
+        </div>
+        <div class="txt-align-center">
+          <div class="playbook-color-swatch" style="background: var(--color-card-8);"></div>
+          <div class="txt-x-small">8</div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================ -->
+    <!-- TYPOGRAPHY SECTION -->
+    <!-- ============================================================ -->
+    <section class="playbook-section" id="typography">
+      <h2 class="playbook-title">Typography</h2>
+      <p class="playbook-description">Defined in <code>base.css</code>, <code>utilities.css</code>, <code>rich-text-content.css</code></p>
+
+      <h3 class="playbook-subtitle">Font Sizes</h3>
+      <div class="txt-align-start">
+        <p class="txt-xx-large margin-block-half">Text XX-Large (--text-xx-large)</p>
+        <p class="txt-x-large margin-block-half">Text X-Large (--text-x-large)</p>
+        <p class="txt-large margin-block-half">Text Large (--text-large)</p>
+        <p class="txt-medium margin-block-half">Text Medium (--text-medium)</p>
+        <p class="txt-normal margin-block-half">Text Normal (--text-normal)</p>
+        <p class="txt-small margin-block-half">Text Small (--text-small)</p>
+        <p class="txt-x-small margin-block-half">Text X-Small (--text-x-small)</p>
+      </div>
+
+      <h3 class="playbook-subtitle">Text Styles &amp; Colors</h3>
+      <div class="playbook-row txt-align-start">
+        <span class="font-weight-black">Bold Black</span>
+        <span class="txt-uppercase">Uppercase</span>
+        <span class="txt-ink">Ink</span>
+        <span class="txt-subtle">Subtle</span>
+        <span class="txt-negative">Negative</span>
+        <span style="color: var(--color-positive);">Positive</span>
+        <span class="txt-link">Link</span>
+      </div>
+
+      <h3 class="playbook-subtitle">Rich Text Content</h3>
+      <div class="rich-text-content playbook-box txt-align-start">
+        <h1>Heading 1</h1>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+        <p>Paragraph with <strong>bold</strong>, <em>italic</em>, and <a href="#">link</a>. Lorem ipsum dolor sit amet.</p>
+        <blockquote>This is a blockquote with italic styling and a left border.</blockquote>
+        <ul>
+          <li>Unordered list item 1</li>
+          <li>Unordered list item 2
+            <ul>
+              <li>Nested item</li>
+            </ul>
+          </li>
+        </ul>
+        <ol>
+          <li>Ordered list item 1</li>
+          <li>Ordered list item 2</li>
+        </ol>
+        <pre><code>// Code block
+function hello(name) {
+  console.log(`Hello, ${name}!`);
+}</code></pre>
+        <p>Inline <code>code</code> example.</p>
+        <hr>
+        <p>Content after horizontal rule.</p>
+      </div>
+
+      <h3 class="playbook-subtitle">Circled Text Effect</h3>
+      <p class="playbook-description">From <code>circled-text.css</code></p>
+      <div class="playbook-row">
+        <span class="circled-text txt-large"><span>Important</span></span>
+        <span class="circled-text" style="--circled-color: var(--color-negative);"><span>Alert</span></span>
+        <span class="circled-text" style="--circled-color: var(--color-positive);"><span>Success</span></span>
+      </div>
+    </section>
+
+
+    <!-- ============================================================ -->
+    <!-- BUTTONS SECTION -->
+    <!-- ============================================================ -->
+    <section class="playbook-section" id="buttons">
+      <h2 class="playbook-title">Buttons</h2>
+      <p class="playbook-description">Defined in <code>buttons.css</code></p>
+
+      <h3 class="playbook-subtitle">Basic Buttons</h3>
+      <div class="playbook-row">
+        <button class="btn">Default</button>
+        <button class="btn btn--link">Link</button>
+        <button class="btn btn--reversed">Reversed</button>
+        <button class="btn btn--negative">Negative</button>
+        <button class="btn btn--positive">Positive</button>
+      </div>
+
+      <h3 class="playbook-subtitle">Button Variants</h3>
+      <div class="playbook-row">
+        <button class="btn btn--plain">Plain</button>
+        <button class="btn" disabled>Disabled</button>
+        <a href="#" class="btn">Link as Button</a>
+      </div>
+
+      <h3 class="playbook-subtitle">Icon Buttons (Circle)</h3>
+      <div class="playbook-row">
+        <button class="btn btn--circle" aria-label="Add">
+          <svg class="icon-svg icon-svg--stroke" viewBox="0 0 24 24">
+            <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+        </button>
+        <button class="btn btn--circle" aria-label="Close">
+          <svg class="icon-svg icon-svg--stroke" viewBox="0 0 24 24">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+        <button class="btn btn--circle btn--reversed" aria-label="Check">
+          <svg class="icon-svg icon-svg--stroke" viewBox="0 0 24 24">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </button>
+        <button class="btn btn--circle btn--negative" aria-label="Delete">
+          <svg class="icon-svg icon-svg--stroke" viewBox="0 0 24 24">
+            <polyline points="3 6 5 6 21 6"/>
+            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+          </svg>
+        </button>
+      </div>
+
+      <h3 class="playbook-subtitle">Buttons with Icons</h3>
+      <div class="playbook-row">
+        <button class="btn">
+          <svg class="icon-svg icon-svg--stroke" viewBox="0 0 24 24">
+            <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+          <span>Add New</span>
+        </button>
+        <button class="btn btn--link">
+          <svg class="icon-svg icon-svg--stroke" viewBox="0 0 24 24">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          <span>Save</span>
+        </button>
+      </div>
+
+      <h3 class="playbook-subtitle">Toggle Buttons (checkbox/radio)</h3>
+      <div class="playbook-row">
+        <label class="btn">
+          <input type="checkbox" name="toggle1">
+          <span>Option A</span>
+        </label>
+        <label class="btn">
+          <input type="checkbox" name="toggle2" checked>
+          <span>Option B (On)</span>
+        </label>
+        <label class="btn">
+          <input type="radio" name="radio-btn" value="1">
+          <span>Radio 1</span>
+        </label>
+        <label class="btn">
+          <input type="radio" name="radio-btn" value="2" checked>
+          <span>Radio 2</span>
+        </label>
+      </div>
+
+      <h3 class="playbook-subtitle">Button Group</h3>
+      <div class="btn__group" style="max-inline-size: 400px;">
+        <div><button class="btn">Left</button></div>
+        <div><button class="btn">Center</button></div>
+        <div><button class="btn">Right</button></div>
+      </div>
+
+      <h3 class="playbook-subtitle">Knobs (Small Buttons)</h3>
+      <p class="playbook-description">From <code>knobs.css</code></p>
+      <div class="playbook-row">
+        <button class="knob" aria-label="Expand">
+          <svg class="icon-svg icon-svg--stroke" viewBox="0 0 24 24" style="block-size:1em;inline-size:1em;">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+        <button class="knob" aria-label="Collapse">
+          <svg class="icon-svg icon-svg--stroke" viewBox="0 0 24 24" style="block-size:1em;inline-size:1em;">
+            <polyline points="18 15 12 9 6 15"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+
+    <!-- ============================================================ -->
+    <!-- FORMS SECTION -->
+    <!-- ============================================================ -->
+    <section class="playbook-section" id="forms">
+      <h2 class="playbook-title">Form Elements</h2>
+      <p class="playbook-description">Defined in <code>inputs.css</code>, <code>toggles.css</code>, <code>steps.css</code></p>
+
+      <div class="playbook-grid">
+        <div class="playbook-box">
+          <h4 class="txt-small font-weight-black margin-block-end-half">Text Input</h4>
+          <input type="text" class="input" placeholder="Enter text...">
+        </div>
+        <div class="playbook-box">
+          <h4 class="txt-small font-weight-black margin-block-end-half">Email</h4>
+          <input type="email" class="input" placeholder="email@example.com">
+        </div>
+        <div class="playbook-box">
+          <h4 class="txt-small font-weight-black margin-block-end-half">Password</h4>
+          <input type="password" class="input" placeholder="Password">
+        </div>
+        <div class="playbook-box">
+          <h4 class="txt-small font-weight-black margin-block-end-half">Number</h4>
+          <input type="number" class="input" placeholder="0" min="0" max="100">
+        </div>
+        <div class="playbook-box">
+          <h4 class="txt-small font-weight-black margin-block-end-half">Search</h4>
+          <input type="search" class="input" placeholder="Search...">
+        </div>
+        <div class="playbook-box">
+          <h4 class="txt-small font-weight-black margin-block-end-half">Date</h4>
+          <input type="date" class="input">
+        </div>
+      </div>
+
+      <h3 class="playbook-subtitle">Select Dropdown</h3>
+      <div style="max-inline-size: 300px;">
+        <select class="input input--select">
+          <option value="">Select an option...</option>
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+        </select>
+      </div>
+
+      <h3 class="playbook-subtitle">Textarea</h3>
+      <div style="max-inline-size: 500px;">
+        <textarea class="input input--textarea" placeholder="Enter your message..."></textarea>
+      </div>
+
+      <h3 class="playbook-subtitle">Checkboxes (Step Style)</h3>
+      <div class="flex flex-column gap-half txt-align-start">
+        <label class="flex align-center gap-half cursor-pointer">
+          <input type="checkbox" class="step__checkbox">
+          <span>Unchecked option</span>
+        </label>
+        <label class="flex align-center gap-half cursor-pointer">
+          <input type="checkbox" class="step__checkbox" checked>
+          <span>Checked option</span>
+        </label>
+        <label class="flex align-center gap-half cursor-pointer">
+          <input type="checkbox" class="step__checkbox" disabled>
+          <span>Disabled option</span>
+        </label>
+      </div>
+
+      <h3 class="playbook-subtitle">Radio Buttons</h3>
+      <div class="flex flex-column gap-half txt-align-start">
+        <label class="flex align-center gap-half cursor-pointer">
+          <input type="radio" name="radio-demo" value="1">
+          <span>Radio Option 1</span>
+        </label>
+        <label class="flex align-center gap-half cursor-pointer">
+          <input type="radio" name="radio-demo" value="2" checked>
+          <span>Radio Option 2 (selected)</span>
+        </label>
+        <label class="flex align-center gap-half cursor-pointer">
+          <input type="radio" name="radio-demo" value="3">
+          <span>Radio Option 3</span>
+        </label>
+      </div>
+
+      <h3 class="playbook-subtitle">Switch Toggle</h3>
+      <div class="flex gap align-center flex-wrap">
+        <div class="flex align-center gap-half">
+          <label class="switch">
+            <input type="checkbox" class="switch__input">
+            <span class="switch__btn"></span>
+          </label>
+          <span>Off</span>
+        </div>
+        <div class="flex align-center gap-half">
+          <label class="switch">
+            <input type="checkbox" class="switch__input" checked>
+            <span class="switch__btn"></span>
+          </label>
+          <span>On</span>
+        </div>
+        <div class="flex align-center gap-half">
+          <label class="switch">
+            <input type="checkbox" class="switch__input" disabled>
+            <span class="switch__btn"></span>
+          </label>
+          <span>Disabled</span>
+        </div>
+      </div>
+
+      <h3 class="playbook-subtitle">File Input</h3>
+      <input type="file" class="input" style="max-inline-size: 300px;">
+
+      <h3 class="playbook-subtitle">Color Picker Grid</h3>
+      <p class="playbook-description">From <code>color-picker.css</code></p>
+      <div class="color-picker__colors" style="max-inline-size: 200px;">
+        <button class="btn" style="background: var(--color-card-default);"></button>
+        <button class="btn" style="background: var(--color-card-3);"></button>
+        <button class="btn" style="background: var(--color-card-4);"></button>
+        <button class="btn" style="background: var(--color-card-5);"></button>
+        <button class="btn" style="background: var(--color-card-6);"></button>
+        <button class="btn" style="background: var(--color-card-7);"></button>
+      </div>
+
+      <h3 class="playbook-subtitle">Complete Form</h3>
+      <form class="panel txt-align-start" style="max-inline-size: 500px;">
+        <div class="margin-block-end">
+          <label class="txt-small font-weight-black">Full Name</label>
+          <input type="text" class="input margin-block-start-half" placeholder="John Doe">
+        </div>
+        <div class="margin-block-end">
+          <label class="txt-small font-weight-black">Email</label>
+          <input type="email" class="input margin-block-start-half" placeholder="john@example.com">
+        </div>
+        <div class="margin-block-end">
+          <label class="txt-small font-weight-black">Message</label>
+          <textarea class="input input--textarea margin-block-start-half" placeholder="Your message..."></textarea>
+        </div>
+        <div class="margin-block-end">
+          <label class="flex align-center gap-half cursor-pointer">
+            <input type="checkbox" class="step__checkbox">
+            <span>I agree to the terms</span>
+          </label>
+        </div>
+        <div class="flex gap">
+          <button type="submit" class="btn btn--link">Submit</button>
+          <button type="reset" class="btn">Reset</button>
+        </div>
+      </form>
+    </section>
+
+
+    <!-- ============================================================ -->
+    <!-- CARDS SECTION -->
+    <!-- ============================================================ -->
+    <section class="playbook-section" id="cards">
+      <h2 class="playbook-title">Cards</h2>
+      <p class="playbook-description">Defined in <code>cards.css</code></p>
+
+      <h3 class="playbook-subtitle">Basic Cards</h3>
+      <div class="playbook-grid">
+        <article class="card" style="--card-color: var(--color-card-default);">
+          <header class="card__header">
+            <div class="card__board">
+              <span class="card__id">#001</span>
+            </div>
+          </header>
+          <div class="card__body">
+            <div class="card__content">
+              <h3 class="card__title" style="font-size: var(--text-large);">Default Card</h3>
+              <p class="txt-small txt-subtle">Card description text here.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" style="--card-color: var(--color-card-3);">
+          <header class="card__header">
+            <div class="card__board">
+              <span class="card__id">#002</span>
+              <span class="card__board-name">Board</span>
+            </div>
+          </header>
+          <div class="card__body">
+            <div class="card__content">
+              <h3 class="card__title" style="font-size: var(--text-large);">Yellow Card</h3>
+              <p class="txt-small txt-subtle">With board name.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" style="--card-color: var(--color-card-4);">
+          <header class="card__header">
+            <div class="card__board">
+              <span class="card__id">#003</span>
+            </div>
+          </header>
+          <div class="card__body">
+            <div class="card__content">
+              <h3 class="card__title" style="font-size: var(--text-large);">Green Card</h3>
+              <p class="txt-small txt-subtle">Lime variant.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <h3 class="playbook-subtitle">Card with Golden Effect</h3>
+      <p class="playbook-description">From <code>golden-effect.css</code></p>
+      <article class="card golden-effect card--golden-demo" style="--card-color: var(--color-card-3); max-inline-size: 350px;">
+        <header class="card__header">
+          <div class="card__board">
+            <span class="card__id">#GOLD</span>
+            <span class="card__board-name">Featured</span>
+          </div>
+        </header>
+        <div class="card__body">
+          <div class="card__content">
+            <h3 class="card__title" style="font-size: var(--text-large);">Golden Card</h3>
+            <p class="txt-small txt-subtle">With glowing golden effect.</p>
+          </div>
+        </div>
+      </article>
+
+      <h3 class="playbook-subtitle">Card with Full Meta</h3>
+      <article class="card" style="--card-color: var(--color-card-6); max-inline-size: 500px;">
+        <header class="card__header">
+          <div class="card__board">
+            <span class="card__id">#004</span>
+            <span class="card__board-name">Project</span>
+          </div>
+          <div class="card__tags">
+            <span class="card__tag txt-x-small">Feature</span>
+          </div>
+        </header>
+        <div class="card__body">
+          <div class="card__content">
+            <h3 class="card__title" style="font-size: var(--text-large);">Card with Metadata</h3>
+            <p class="txt-small txt-subtle">Complete card layout.</p>
+          </div>
+        </div>
+        <footer class="card__meta">
+          <span>Added <strong>Dec 15</strong></span>
+          <span>by <strong>John</strong></span>
+        </footer>
+      </article>
+    </section>
+
+
+    <!-- ============================================================ -->
+    <!-- LAYOUT SECTION -->
+    <!-- ============================================================ -->
+    <section class="playbook-section" id="layout">
+      <h2 class="playbook-title">Layout Components</h2>
+      <p class="playbook-description">Defined in <code>layout.css</code>, <code>panels.css</code>, <code>profile-layout.css</code>, <code>settings.css</code></p>
+
+      <h3 class="playbook-subtitle">Panel</h3>
+      <div class="panel margin-block-end">
+        <h4 class="txt-medium font-weight-black margin-block-end-half">Panel Title</h4>
+        <p class="txt-small">Panels are versatile containers with consistent padding and borders.</p>
+        <div class="flex gap margin-block-start">
+          <button class="btn btn--link">Action</button>
+          <button class="btn">Cancel</button>
+        </div>
+      </div>
+
+      <h3 class="playbook-subtitle">Header Example</h3>
+      <div class="demo-header margin-block-end">
+        <div class="flex justify-space-between align-center">
+          <span class="txt-large font-weight-black">App Header</span>
+          <div class="flex gap-half">
+            <button class="btn btn--circle" style="--btn-border-color: transparent;" aria-label="Search">
+              <svg class="icon-svg icon-svg--stroke" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+            </button>
+            <button class="btn btn--circle" style="--btn-border-color: transparent;" aria-label="Menu">
+              <svg class="icon-svg icon-svg--stroke" viewBox="0 0 24 24">
+                <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="playbook-subtitle">Sidebar + Content</h3>
+      <div class="flex gap" style="min-block-size: 200px;">
+        <aside class="demo-sidebar" style="inline-size: 200px; flex-shrink: 0;">
+          <h4 class="txt-medium font-weight-black margin-block-end-half">Navigation</h4>
+          <ul class="list-style-none flex flex-column gap-half">
+            <li><a href="#" class="btn btn--plain full-width justify-start">Home</a></li>
+            <li><a href="#" class="btn btn--plain full-width justify-start">Boards</a></li>
+            <li><a href="#" class="btn btn--plain full-width justify-start">Settings</a></li>
+          </ul>
+        </aside>
+        <main class="flex-1 playbook-box">
+          <h4 class="txt-medium font-weight-black margin-block-end-half">Main Content</h4>
+          <p class="txt-small">Flexible main area.</p>
+        </main>
+      </div>
+
+      <h3 class="playbook-subtitle">Profile Layout</h3>
+      <p class="playbook-description">From <code>profile-layout.css</code> - Responsive horizontal/vertical</p>
+      <div class="profile-layout playbook-box">
+        <div class="panel" style="--panel-size: auto;">
+          <div class="avatar" style="--avatar-size: 4em; background: var(--color-card-5); margin: 0 auto;"></div>
+          <p class="txt-align-center margin-block-start-half font-weight-black">User Name</p>
+        </div>
+        <div class="panel flex-1">
+          <h4 class="txt-medium font-weight-black">Profile Content</h4>
+          <p class="txt-small">User profile information goes here.</p>
+        </div>
+      </div>
+
+      <h3 class="playbook-subtitle">Settings Grid</h3>
+      <p class="playbook-description">From <code>settings.css</code></p>
+      <div class="settings">
+        <div class="settings__panel panel">
+          <h4 class="txt-medium font-weight-black">Account Settings</h4>
+          <p class="txt-small txt-subtle">Manage your account preferences.</p>
+        </div>
+        <div class="settings__panel panel">
+          <h4 class="txt-medium font-weight-black">Notifications</h4>
+          <p class="txt-small txt-subtle">Configure notification settings.</p>
+        </div>
+      </div>
+
+      <h3 class="playbook-subtitle">Footer Example</h3>
+      <div class="demo-footer margin-block-start">
+        <div class="flex justify-space-between align-center flex-wrap gap">
+          <span class="txt-small txt-subtle">&copy; 2024 Company</span>
+          <div class="flex gap">
+            <a href="#" class="btn btn--plain txt-small">Privacy</a>
+            <a href="#" class="btn btn--plain txt-small">Terms</a>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="playbook-subtitle">Grid Layout</h3>
+      <div class="playbook-grid">
+        <div class="playbook-box txt-align-center">Grid 1</div>
+        <div class="playbook-box txt-align-center">Grid 2</div>
+        <div class="playbook-box txt-align-center">Grid 3</div>
+        <div class="playbook-box txt-align-center">Grid 4</div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================ -->
+    <!-- COMPONENTS SECTION -->
+    <!-- ============================================================ -->
+    <section class="playbook-section" id="components">
+      <h2 class="playbook-title">UI Components</h2>
+      <p class="playbook-description">Various UI components from multiple CSS files</p>
+
+      <h3 class="playbook-subtitle">Avatars</h3>
+      <p class="playbook-description">From <code>avatars.css</code></p>
+      <div class="playbook-row">
+        <figure class="avatar" style="--avatar-size: 2em; background: var(--color-card-default);"></figure>
+        <figure class="avatar" style="--avatar-size: 3em; background: var(--color-card-3);"></figure>
+        <figure class="avatar" style="--avatar-size: 4em; background: var(--color-card-5);"></figure>
+        <figure class="avatar" style="--avatar-size: 5em; background: var(--color-card-7);"></figure>
+      </div>
+
+      <h3 class="playbook-subtitle">Separators</h3>
+      <p class="playbook-description">From <code>separators.css</code></p>
+      <div class="flex gap align-center margin-block-end" style="block-size: 40px;">
+        <span>Left</span>
+        <span class="separator" style="--border-color: var(--color-ink-light);"></span>
+        <span>Right</span>
+      </div>
+      <div class="margin-block-end">
+        <p class="margin-block-end-half">Content above</p>
+        <hr class="separator--horizontal">
+        <p class="margin-block-start-half">Content below</p>
+      </div>
+
+      <h3 class="playbook-subtitle">Divider with Text</h3>
+      <p class="playbook-description">From <code>dividers.css</code></p>
+      <div class="divider margin-block">
+        <span class="txt-small txt-subtle">OR</span>
+      </div>
+
+      <h3 class="playbook-subtitle">Steps / Checklist</h3>
+      <p class="playbook-description">From <code>steps.css</code></p>
+      <ul class="steps playbook-box txt-align-start" style="max-inline-size: 400px;">
+        <li class="step">
+          <input type="checkbox" class="step__checkbox">
+          <span class="step__content">First task to complete</span>
+        </li>
+        <li class="step">
+          <input type="checkbox" class="step__checkbox" checked>
+          <span class="step__content">Completed task (strikethrough)</span>
+        </li>
+        <li class="step">
+          <input type="checkbox" class="step__checkbox">
+          <span class="step__content">Another pending task</span>
+        </li>
+      </ul>
+
+      <h3 class="playbook-subtitle">Tags</h3>
+      <p class="playbook-description">From <code>tags.css</code></p>
+      <div class="playbook-row">
+        <span class="tag">Default Tag</span>
+        <span class="tag" style="background: var(--color-card-3); color: var(--color-ink);">Yellow</span>
+        <span class="tag" style="background: var(--color-card-4); color: var(--color-ink);">Green</span>
+        <span class="tag" style="background: var(--color-card-6); color: var(--color-ink-inverted);">Purple</span>
+      </div>
+
+      <h3 class="playbook-subtitle">Flash Message</h3>
+      <p class="playbook-description">From <code>flash.css</code></p>
+      <div class="flash flash--demo margin-block">
+        <div class="flash__inner">This is a flash notification!</div>
+      </div>
+
+      <h3 class="playbook-subtitle">Spinner (Loading)</h3>
+      <p class="playbook-description">From <code>spinners.css</code></p>
+      <div class="playbook-row align-center">
+        <span class="spinner"></span>
+        <span class="txt-subtle">Loading...</span>
+      </div>
+
+      <h3 class="playbook-subtitle">Keyboard Shortcuts</h3>
+      <div class="playbook-row">
+        <kbd>Ctrl</kbd> + <kbd>S</kbd> <span class="margin-inline">Save</span>
+        <kbd>Esc</kbd> <span class="margin-inline">Close</span>
+        <kbd>Enter</kbd> <span class="margin-inline">Submit</span>
+      </div>
+
+      <h3 class="playbook-subtitle">Dialog (Modal)</h3>
+      <p class="playbook-description">From <code>dialog.css</code></p>
+      <div class="playbook-row">
+        <button class="btn" onclick="document.getElementById('demo-dialog').showModal()">
+          Open Dialog
+        </button>
+      </div>
+      <dialog id="demo-dialog" class="dialog panel" style="max-inline-size: 400px;">
+        <h3 class="txt-large font-weight-black margin-block-end-half">Dialog Title</h3>
+        <p class="txt-small margin-block-end">Click outside or press Escape to close.</p>
+        <div class="flex gap justify-end">
+          <button class="btn" onclick="document.getElementById('demo-dialog').close()">Cancel</button>
+          <button class="btn btn--link" onclick="document.getElementById('demo-dialog').close()">Confirm</button>
+        </div>
+      </dialog>
+
+      <h3 class="playbook-subtitle">Popup Menu (Static)</h3>
+      <p class="playbook-description">From <code>popup.css</code></p>
+      <div class="position-relative" style="min-block-size: 180px;">
+        <div class="popup panel" style="position: relative; inset: auto; transform: none; display: flex; inline-size: 220px;">
+          <div class="popup__section-title">Actions</div>
+          <ul class="popup__list" role="list">
+            <li class="popup__item">
+              <button class="popup__btn btn btn--plain">
+                <svg class="icon-svg icon-svg--stroke" style="margin-inline-end:0.5em;block-size:1em;inline-size:1em;" viewBox="0 0 24 24">
+                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                </svg>
+                Edit
+              </button>
+            </li>
+            <li class="popup__item">
+              <button class="popup__btn btn btn--plain">
+                <svg class="icon-svg icon-svg--stroke" style="margin-inline-end:0.5em;block-size:1em;inline-size:1em;" viewBox="0 0 24 24">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                </svg>
+                Duplicate
+              </button>
+            </li>
+            <li class="popup__item">
+              <button class="popup__btn btn btn--plain txt-negative">
+                <svg class="icon-svg icon-svg--stroke" style="margin-inline-end:0.5em;block-size:1em;inline-size:1em;" viewBox="0 0 24 24">
+                  <polyline points="3 6 5 6 21 6"/>
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                </svg>
+                Delete
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="playbook-subtitle">Lightbox (Click to Open)</h3>
+      <p class="playbook-description">From <code>lightbox.css</code></p>
+      <button class="btn" onclick="document.getElementById('demo-lightbox').showModal()">
+        Open Lightbox
+      </button>
+      <dialog id="demo-lightbox" class="lightbox">
+        <div class="lightbox__actions">
+          <button class="btn btn--circle" style="--btn-background: transparent; --btn-border-color: white; color: white;" onclick="document.getElementById('demo-lightbox').close()" aria-label="Close">
+            <svg class="icon-svg icon-svg--stroke" viewBox="0 0 24 24">
+              <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
+        </div>
+        <figure class="lightbox__figure">
+          <div class="lightbox__image" style="background: linear-gradient(135deg, var(--color-card-5), var(--color-card-7)); border-radius: 0.5em; min-block-size: 300px; display: grid; place-items: center;">
+            <span style="color: white; font-size: 2em;">Image Preview</span>
+          </div>
+          <figcaption class="lightbox__caption">Lightbox caption text</figcaption>
+        </figure>
+      </dialog>
+    </section>
+
+
+    <!-- ============================================================ -->
+    <!-- EFFECTS SECTION -->
+    <!-- ============================================================ -->
+    <section class="playbook-section" id="effects">
+      <h2 class="playbook-title">Special Effects</h2>
+      <p class="playbook-description">Visual effects from various CSS files</p>
+
+      <h3 class="playbook-subtitle">Bubble</h3>
+      <p class="playbook-description">From <code>bubble.css</code> - Hover to wobble</p>
+      <div class="playbook-row" style="position: relative; min-block-size: 100px;">
+        <div class="bubble" style="--bubble-size: 5rem; --bubble-color: var(--color-card-default); position: relative;">
+          <span class="bubble__number">42</span>
+        </div>
+        <div class="bubble" style="--bubble-size: 4rem; --bubble-color: var(--color-card-4); position: relative; --bubble-rotate: 15deg;">
+          <span class="bubble__number">7</span>
+        </div>
+        <div class="bubble" style="--bubble-size: 3rem; --bubble-color: var(--color-card-7); position: relative; --bubble-rotate: -10deg;">
+          <span class="bubble__number">!</span>
+        </div>
+      </div>
+
+      <h3 class="playbook-subtitle">Golden Effect</h3>
+      <p class="playbook-description">From <code>golden-effect.css</code></p>
+      <div class="panel golden-effect card--golden-demo" style="max-inline-size: 300px;">
+        <p class="txt-medium font-weight-black">Golden Glow</p>
+        <p class="txt-small">Applied via <code>.golden-effect</code> class.</p>
+      </div>
+
+      <h3 class="playbook-subtitle">Drag and Drop States</h3>
+      <p class="playbook-description">From <code>drag_and_drop.css</code></p>
+      <div class="playbook-grid">
+        <div class="card drag-and-drop__dragged-item" style="--card-color: var(--color-card-default);">
+          <div class="card__body">
+            <p class="txt-small">Dragged Item (grayscale + dashed border)</p>
+          </div>
+        </div>
+        <div class="panel drag-and-drop__hover-container">
+          <p class="txt-small">Drop Target (highlighted background)</p>
+        </div>
+      </div>
+
+      <h3 class="playbook-subtitle">Blank Slates</h3>
+      <p class="playbook-description">From <code>blank-slates.css</code></p>
+      <div class="blank-slate--empty" style="max-inline-size: fit-content;">
+        <p>No items yet. Add something!</p>
+      </div>
+    </section>
+
+
+    <!-- ============================================================ -->
+    <!-- ANIMATIONS SECTION -->
+    <!-- ============================================================ -->
+    <section class="playbook-section" id="animations">
+      <h2 class="playbook-title">Animations</h2>
+      <p class="playbook-description">Defined in <code>animation.css</code> - Hover to trigger</p>
+
+      <h3 class="playbook-subtitle">Hover Animations</h3>
+      <div class="playbook-row">
+        <div class="animation-demo playbook-box">
+          <div class="shake-target">Shake</div>
+        </div>
+        <div class="animation-demo playbook-box">
+          <div class="wobble-target">Wobble</div>
+        </div>
+        <div class="animation-demo playbook-box">
+          <div class="pulse-target">Pulse</div>
+        </div>
+        <div class="animation-demo playbook-box">
+          <div class="zoom-fade-target">Zoom Fade</div>
+        </div>
+      </div>
+
+      <h3 class="playbook-subtitle">Loading Spinner</h3>
+      <div class="playbook-row align-center">
+        <span class="spinner"></span>
+        <span class="txt-subtle">Three-dot animation</span>
+      </div>
+
+      <h3 class="playbook-subtitle">Flash Message Animation</h3>
+      <p class="txt-small txt-subtle margin-block-end">Uses <code>appear-then-fade</code> keyframe</p>
+      <div class="flash" style="position: relative; inset: auto; transform: none;">
+        <div class="flash__inner">Animated flash message (fades out)</div>
+      </div>
+
+      <h3 class="playbook-subtitle">Available Keyframes</h3>
+      <div class="playbook-box txt-align-start">
+        <ul class="list-style-none txt-small flex flex-wrap gap">
+          <li><code>appear-then-fade</code></li>
+          <li><code>gradient</code></li>
+          <li><code>pulse</code></li>
+          <li><code>react</code></li>
+          <li><code>scale-fade-out</code></li>
+          <li><code>shake</code></li>
+          <li><code>slide-up</code></li>
+          <li><code>slide-up-fade-in</code></li>
+          <li><code>slide-down</code></li>
+          <li><code>submitting</code></li>
+          <li><code>success</code></li>
+          <li><code>wobble</code></li>
+          <li><code>zoom-fade</code></li>
+          <li><code>blink</code></li>
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- ============================================================ -->
+    <!-- INTERACTIONS SECTION -->
+    <!-- ============================================================ -->
+    <section class="playbook-section" id="interactions">
+      <h2 class="playbook-title">Interactive Components</h2>
+      <p class="playbook-description">Components with state changes and user interaction</p>
+
+      <h3 class="playbook-subtitle">Comment</h3>
+      <p class="playbook-description">From <code>comments.css</code></p>
+      <div class="comments" style="align-items: start; padding: 0;">
+        <div class="comment">
+          <div class="comment__avatar">
+            <figure class="avatar" style="--avatar-size: 2.33em; background: var(--color-card-5);"></figure>
+          </div>
+          <div class="comment__content">
+            <div class="comment__author">
+              <strong>User Name</strong>
+              <span class="txt-small txt-subtle">2 hours ago</span>
+            </div>
+            <div class="comment__body">
+              <p>This is a comment content. It supports rich text and can contain multiple paragraphs.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="playbook-subtitle">Reactions</h3>
+      <p class="playbook-description">From <code>reactions.css</code></p>
+      <div class="reactions" style="position: relative; margin: 0;">
+        <div class="reactions__list">
+          <span class="reaction">
+            <span>👍</span>
+            <span class="txt-small txt-medium">3</span>
+          </span>
+          <span class="reaction">
+            <span>❤️</span>
+            <span class="txt-small txt-medium">5</span>
+          </span>
+          <span class="reaction">
+            <span>🎉</span>
+            <span class="txt-small txt-medium">2</span>
+          </span>
+        </div>
+        <button class="btn btn--circle reactions__trigger" aria-label="Add reaction">
+          <span>+</span>
+        </button>
+      </div>
+
+      <h3 class="playbook-subtitle">Filters</h3>
+      <p class="playbook-description">From <code>filters.css</code></p>
+      <div class="filters" style="justify-content: start;">
+        <input type="search" class="input filter__terms" placeholder="Search...">
+        <select class="input input--select" style="inline-size: auto;">
+          <option>All Status</option>
+          <option>Active</option>
+          <option>Completed</option>
+        </select>
+        <button class="btn filter-toggle">
+          <svg class="icon-svg icon-svg--stroke" style="block-size:1em;inline-size:1em;" viewBox="0 0 24 24">
+            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+          </svg>
+          <span>Filters</span>
+        </button>
+      </div>
+
+      <h3 class="playbook-subtitle">Search</h3>
+      <p class="playbook-description">From <code>search.css</code></p>
+      <div class="search" style="padding: 0; max-block-size: none; overflow: visible;">
+        <input type="search" class="input search__input" placeholder="Search for anything...">
+        <ul class="search__list">
+          <li class="search__result card" style="--card-color: var(--color-card-default);">
+            <span class="search__title">Search Result 1</span>
+            <p class="search__excerpt txt-small txt-subtle">This is the excerpt text showing the match context...</p>
+          </li>
+        </ul>
+      </div>
+
+      <h3 class="playbook-subtitle">Pagination</h3>
+      <p class="playbook-description">From <code>pagination.css</code></p>
+      <nav class="pagination" aria-label="Pagination">
+        <a href="#" class="btn">Previous</a>
+        <span class="pagination__info txt-small">Page 1 of 10</span>
+        <a href="#" class="btn">Next</a>
+      </nav>
+
+      <h3 class="playbook-subtitle">Event Card</h3>
+      <p class="playbook-description">From <code>events.css</code></p>
+      <div class="event" style="--card-color: var(--color-card-5); max-inline-size: 300px; margin: 0;">
+        <div class="event__timestamp txt-x-small">
+          <strong>10:30 AM</strong>
+        </div>
+        <div class="event__content">
+          <h4 class="event__title">Event Title</h4>
+          <p class="txt-small txt-subtle">Event description text here.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================ -->
+    <!-- UTILITIES SECTION -->
+    <!-- ============================================================ -->
+    <section class="playbook-section" id="utilities">
+      <h2 class="playbook-title">Utility Classes</h2>
+      <p class="playbook-description">From <code>utilities.css</code></p>
+
+      <h3 class="playbook-subtitle">Flexbox</h3>
+      <div class="playbook-box txt-align-start txt-small">
+        <code>.flex .flex-inline .flex-column .flex-wrap</code><br>
+        <code>.justify-start .justify-center .justify-end .justify-space-between</code><br>
+        <code>.align-start .align-center .align-end</code><br>
+        <code>.gap .gap-half .flex-1 .flex-item-grow .flex-item-no-shrink</code>
+      </div>
+
+      <h3 class="playbook-subtitle">Spacing</h3>
+      <div class="playbook-box txt-align-start txt-small">
+        <code>.pad .pad-block .pad-inline .pad-double .unpad</code><br>
+        <code>.margin .margin-block .margin-inline .margin-none .center</code><br>
+        <code>.margin-block-start .margin-block-end .margin-block-half</code>
+      </div>
+
+      <h3 class="playbook-subtitle">Text</h3>
+      <div class="playbook-box txt-align-start txt-small">
+        <code>.txt-xx-small .txt-x-small .txt-small .txt-normal .txt-medium .txt-large .txt-x-large .txt-xx-large</code><br>
+        <code>.txt-align-start .txt-align-center .txt-align-end</code><br>
+        <code>.txt-ink .txt-subtle .txt-negative .txt-link .txt-reversed</code><br>
+        <code>.font-weight-black .font-weight-normal .txt-uppercase .txt-nowrap</code>
+      </div>
+
+      <h3 class="playbook-subtitle">Visual</h3>
+      <div class="playbook-box txt-align-start txt-small">
+        <code>.fill .fill-shade .border .border-top .borderless</code><br>
+        <code>.border-radius .shadow .translucent</code>
+      </div>
+
+      <h3 class="playbook-subtitle">Display</h3>
+      <div class="playbook-box txt-align-start txt-small">
+        <code>[hidden] .for-screen-reader .cursor-pointer</code><br>
+        <code>.list-style-none .full-width .position-relative</code>
+      </div>
+
+      <h3 class="playbook-subtitle">Responsive Utilities</h3>
+      <div class="playbook-box txt-align-start txt-small">
+        <code>.hide-in-pwa .hide-in-browser .hide-on-touch .show-on-touch</code>
+      </div>
+    </section>
+
+
+    <!-- ============================================================ -->
+    <!-- THEME SECTION -->
+    <!-- ============================================================ -->
+    <section class="playbook-section">
+      <h2 class="playbook-title">Dark Mode &amp; Theme</h2>
+      <p class="playbook-description">From <code>theme-switcher.css</code></p>
+
+      <h3 class="playbook-subtitle">Theme Switcher</h3>
+      <div class="theme-switcher">
+        <label class="btn theme-switcher__btn">
+          <input type="radio" name="theme" value="" onchange="document.documentElement.removeAttribute('data-theme')">
+          <svg class="icon-svg icon-svg--stroke icon-svg--large" viewBox="0 0 24 24">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+          <span>System</span>
+        </label>
+        <label class="btn theme-switcher__btn">
+          <input type="radio" name="theme" value="light" onchange="document.documentElement.setAttribute('data-theme', 'light')">
+          <svg class="icon-svg icon-svg--stroke icon-svg--large" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <span>Light</span>
+        </label>
+        <label class="btn theme-switcher__btn">
+          <input type="radio" name="theme" value="dark" onchange="document.documentElement.setAttribute('data-theme', 'dark')">
+          <svg class="icon-svg icon-svg--stroke icon-svg--large" viewBox="0 0 24 24">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <span>Dark</span>
+        </label>
+      </div>
+
+      <h3 class="playbook-subtitle">Implementation</h3>
+      <div class="playbook-box txt-align-start txt-small">
+        <p class="margin-block-end-half"><strong>Automatic (System):</strong></p>
+        <code>@media (prefers-color-scheme: dark) { ... }</code>
+        <p class="margin-block margin-block-end-half"><strong>Manual Override:</strong></p>
+        <code>html[data-theme="dark"] { ... }</code><br>
+        <code>html[data-theme="light"] { ... }</code>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="demo-footer margin-block-start-double">
+    <div class="playbook-container">
+      <div class="flex justify-space-between align-center flex-wrap gap">
+        <span class="txt-small txt-subtle">Fizzy CSS Playbook - External CSS References</span>
+        <a href="#nav" class="btn btn--plain txt-small">Back to Top</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Theme toggle button
+    document.getElementById('theme-toggle').addEventListener('click', function() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      if (current === 'dark') html.setAttribute('data-theme', 'light');
+      else if (current === 'light') html.removeAttribute('data-theme');
+      else html.setAttribute('data-theme', 'dark');
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // Close dialog on backdrop click
+    document.querySelectorAll('dialog').forEach(dialog => {
+      dialog.addEventListener('click', function(e) {
+        if (e.target === this) this.close();
+      });
+    });
+  </script>
+</body>
+</html>
